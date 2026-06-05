@@ -1,0 +1,14 @@
+CREATE TABLE public.nasabah_bukopin (
+	id_nasabah bigserial NOT NULL,
+	nomor_rekening varchar(15) NOT NULL,
+	nama_lengkap varchar(100) NOT NULL,
+	nik varchar(16) NOT NULL,
+	email varchar(100) NULL,
+	nomor_telepon varchar(15) NULL,
+	saldo numeric(15, 2) DEFAULT 0.00 NULL,
+	status_rekening varchar(10) DEFAULT 'AKTIF'::character varying NULL,
+	tanggal_buka timestamp DEFAULT CURRENT_TIMESTAMP NULL,
+	CONSTRAINT nasabah_bukopin_nik_key UNIQUE (nik),
+	CONSTRAINT nasabah_bukopin_nomor_rekening_key UNIQUE (nomor_rekening),
+	CONSTRAINT nasabah_bukopin_pkey PRIMARY KEY (id_nasabah)
+);
